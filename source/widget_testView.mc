@@ -1,5 +1,6 @@
 import Toybox.Graphics;
 import Toybox.WatchUi;
+using Toybox.System;
 
 class widget_testView extends WatchUi.View {
 
@@ -20,6 +21,8 @@ class widget_testView extends WatchUi.View {
     // Update the view
     function onUpdate(dc as Dc) as Void {
         // Call the parent onUpdate function to redraw the layout
+        var stats = System.getSystemStats();
+        var battery = stats.battery;
         
         dc.setColor(
             Graphics.COLOR_WHITE,
@@ -34,10 +37,18 @@ class widget_testView extends WatchUi.View {
         );
 
         dc.drawText(
-            dc.getWidth() / 2,
-            dc.getHeight() / 2,
+            dc.getWidth() / 2 - 10,
+            dc.getHeight() / 2 - 30,
             Graphics.FONT_MEDIUM,
-            "Hello, Martin!",
+            "Hello!",
+            Graphics.TEXT_JUSTIFY_CENTER
+        );
+
+        dc.drawText(
+            dc.getWidth() / 2 + 25,
+            dc.getHeight() / 2 + 20,
+            Graphics.FONT_SMALL,
+            battery.format("%.0f") + "pct",
             Graphics.TEXT_JUSTIFY_CENTER
         );
 
