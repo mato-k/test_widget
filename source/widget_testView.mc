@@ -9,7 +9,19 @@ class widget_testView extends WatchUi.View {
 
     // Load your resources here
     function onLayout(dc as Dc) as Void {
-        setLayout(Rez.Layouts.MainLayout(dc));
+        dc.setColor(
+            Graphics.COLOR_WHITE,
+            Graphics.COLOR_BLACK
+        )
+
+        dc.clear();
+
+        dc.drawText(
+            dc.getWidth() / 2,
+            dc.getHeight() / 2,
+            "Hello, Martin!",
+            Graphics.TEXT_JUSTIFY_CENTER
+        );
     }
 
     // Called when this View is brought to the foreground. Restore
