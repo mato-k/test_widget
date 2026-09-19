@@ -12,7 +12,7 @@ class widget_testView extends WatchUi.View {
         dc.setColor(
             Graphics.COLOR_WHITE,
             Graphics.COLOR_BLACK
-        )
+        );
 
         dc.clear();
 
